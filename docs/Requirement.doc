@@ -1,0 +1,127 @@
+# 📄 Core Requirements & Functional Overview
+
+## 1. User Onboarding
+
+* User installs the application
+* Registers using **OTP-based authentication**
+* Gains access to the app upon successful verification
+
+---
+
+## 2. Contact Visibility (No Immediate Interaction)
+
+* User contacts are synced
+* Users can see which contacts are on the platform
+* ❌ No interaction is allowed at this stage:
+
+  * No messaging
+  * No reactions
+  * No engagement of any kind
+
+> Interaction is intentionally restricted until a secure connection is established (see Section 3)
+
+---
+
+## 3. Connection via QR-Based Approval
+
+### Connection Flow:
+
+* User-A scans User-B’s QR code
+* User-B receives a request with options:
+
+  * ✅ Accept
+  * ❌ Reject
+
+### Outcomes:
+
+* If **accepted**:
+
+  * A permanent connection is established
+  * Users can interact freely
+* If **rejected or removed later**:
+
+  * Connection is terminated
+  * Reconnection requires repeating the QR process
+
+---
+
+## 4. Status / Content Interaction Rules
+
+### Connected Users:
+
+* Can:
+
+  * Like
+  * Comment
+  * Interact fully
+
+### Public Users:
+
+* Can:
+
+  * View public status/posts
+* Cannot:
+
+  * Like
+  * Comment
+  * Share
+  * Screenshot (restricted at application level)
+
+> Note: Absolute prevention of external capture (e.g., using another device) is not guaranteed.
+
+---
+
+## 5. QR Code System
+
+### Individual QR:
+
+* Valid for **1 minute**
+* Displays a **countdown timer**
+* Single active request per user:
+
+  * Cannot receive multiple requests simultaneously
+  * New request allowed only after:
+
+    * Previous request is accepted/rejected OR
+    * QR expires
+
+---
+
+### Group QR:
+
+* Valid for **1 hour (60 minutes)**
+* Generated and shared by **Group Admin**
+* Unlimited users can join during validity period
+
+---
+
+## 6. QR Security Constraints
+
+* Each QR code is:
+
+  * **Single-use only**
+  * Invalid after first successful scan
+
+* Purpose:
+
+  * Prevent misuse or mass sharing
+  * Reduce risk of spam or unauthorized requests
+
+> Even short durations (e.g., 1 minute) are considered sufficient for misuse if not restricted.
+
+---
+
+## 7. Group Joining Behavior
+
+* No limit on number of participants during QR validity
+* Users can join freely within the active time window
+* QR expires automatically after 1 hour
+
+---
+
+## 🔐 Design Philosophy
+
+* Privacy-first interaction model
+* Intentional and controlled connections
+* Zero unsolicited communication
+* Strong emphasis on user consent and security

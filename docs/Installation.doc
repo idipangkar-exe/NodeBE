@@ -1,0 +1,7 @@
+***NOTE*** | Always Check Spelling, Typo = Bug 🐞🪲
+
+1. Node Initialization:
+npm init -y
+
+2. Lib/Packages/db used:
+- express | nodemon | dotenv | cookie-parser | cors | mongoose | mongodb
